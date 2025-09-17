@@ -2,11 +2,11 @@
 import { GoogleGenAI } from "@google/genai";
 import { StoryTurn } from '../types';
 
-if (!process.env.API_KEY) {
-  throw new Error("API_KEY environment variable not set");
+if (!import.meta.env.VITE_API_KEY) {
+  throw new Error("VITE_API_KEY environment variable not set");
 }
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY });
 
 const SYSTEM_INSTRUCTION = `You are a master storyteller and game master for a dynamic text-based adventure game. Your goal is to create an engaging, descriptive, and coherent narrative based on the user's actions.
 - Describe the outcome of the user's action.
